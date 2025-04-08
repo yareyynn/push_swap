@@ -12,8 +12,7 @@ typedef struct s_stack
 	int *b;
 }	t_stack;
 
-
-int argc_ctl(int argc, void *argv);
+int argc_ctl(int argc, char **argv);
 t_stack *stack_init(int argc, void *argv);
 int check_sorted(t_stack *array);
 int check_sorted_rev(int *arr, int size);
