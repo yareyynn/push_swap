@@ -10,7 +10,20 @@ int main(int argc, char **argv)
 		return (1);
 	}
 	array = stack_init(argc, argv);
-	check_sorted(array);
+	if(check_sorted(array) == 1)
+	{
+		free(array->arr);
+		free(array);
+		return (0);
+	}
+	if (check_duplicates(array->arr, array->a_sz) == 0)
+	{
+		write(2, "Error\n", 6);
+		free(array->arr);
+		free(array);
+		return (1);
+	}
+	radix_sort(array);
 }
 
 int argc_ctl(int argc, char **argv)
