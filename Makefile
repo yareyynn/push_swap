@@ -1,4 +1,4 @@
-NAME = fractol
+NAME = push_swap
 NAME_LIBFT = libft/libft.a
 
 INCLUDES_H = -Iinc -Ilibft
@@ -6,7 +6,8 @@ INCLUDES_H = -Iinc -Ilibft
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = src/main.c 
+SRC = src/main.c src/moves.c src/sort.c \
+	src/stack.c src/exit.c
 
 OBJ = $(SRC:.c=.o)
 
