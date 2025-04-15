@@ -8,25 +8,25 @@ t_stack stack_init(int argc, char **argv)
 
 	arg_check(argc, argv);
 	space_check(argc, argv);
-	
-	
+	get_array(argc, argv, array);
 }
 
 void arg_check(int argc, char **argv)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	if (argc < 2)
 		free_and_exit((t_stack){0}, 0, 1);
 	i = 1;
 	while (i < argc)
 	{
+		j = 0;
 		while (argv[i][j])
 		{
-			j = 0;
 			if (argv[i][0] == NULL
-				|| argv[i][j] != '-' && argv[i][j] != '+' && argv[i][j] != ' ' && !ft_isdigit(argv[i][j]))
+				|| (argv[i][j] != '-' && argv[i][j] != '+'
+				&& argv[i][j] != ' ' && !ft_isdigit(argv[i][j])))
 				free_and_exit((t_stack){0}, 0, 1);
 			j++;
 		}
