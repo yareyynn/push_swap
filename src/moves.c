@@ -1,47 +1,35 @@
 #include "../inc/push_swap.h"
 
-void pa(t_stack *array)
+void ra(t_stack array)
 {
-	if (array->b_sz > 0)
-	{
-		array->a_sz++;
-		array->b_sz--;
-		array->a_st--;
-		array->arr[array->a_st] = array->arr[array->b_st];
-		array->b_st++;
-	}
+	array.arr_a[(array.a_st + array.a_sz) % array.size] = array.arr_a[array.a_st];
+	array.a_st = (array.a_st + 1) % array.size;
+	write(1, "ra\n", 3);
 }
 
-void pb(t_stack *array)
+void rb(t_stack array)
 {
-	if (array->a_sz > 0)
-	{
-		array->b_sz++;
-		array->a_sz--;
-		array->b_st--;
-		array->arr[array->b_st] = array->arr[array->a_st];
-		array->a_st++;
-	}
+	array.arr_b[(array.b_st + array.b_sz) % array.size] = array.arr_b[array.b_st];
+	array.b_st = (array.b_st + 1) % array.size;
+	write(1, "rb\n", 3);
 }
 
-void ra(t_stack *array)
+void pa(t_stack array)
 {
-	if (array->a_sz > 1)
-	{
-		int tmp = array->arr[array->a_st];
-		for (int i = array->a_st; i < array->a_st + array->a_sz - 1; i++)
-			array->arr[i] = array->arr[i + 1];
-		array->arr[array->a_st + array->a_sz - 1] = tmp;
-	}
+	array.a_st = (array.a_st - 1 + array.size) % array.size;
+	array.arr_a[array.a_st] = array.arr_b[array.b_st];
+	array.b_st = (array.b_st + 1) % array.size;
+	array.b_sz--;
+	array.a_sz++;
+	write(1, "pa\n", 3);
 }
 
-void rb(t_stack *array)
+void pb(t_stack array)
 {
-	if (array->b_sz > 1)
-	{
-		int tmp = array->arr[array->b_st];
-		for (int i = array->b_st; i < array->b_st + array->b_sz - 1; i++)
-			array->arr[i] = array->arr[i + 1];
-		array->arr[array->b_st + array->b_sz - 1] = tmp;
-	}
+	array.b_st = (array.b_st - 1 + array.size) % array.size;
+	array.arr_b[array.b_st] = array.arr_a[array.a_st];
+	array.a_st = (array.a_st + 1) % array.size;
+	array.a_sz--;
+	array.b_sz++;
+	write(1, "pb\n", 3);
 }
