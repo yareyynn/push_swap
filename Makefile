@@ -4,10 +4,10 @@ NAME_LIBFT = libft/libft.a
 INCLUDES_H = -Iinc -Ilibft
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 SRC = src/main.c src/moves.c src/sort.c \
-	src/stack.c src/exit.c
+	src/stack.c src/array.c
 
 OBJ = $(SRC:.c=.o)
 

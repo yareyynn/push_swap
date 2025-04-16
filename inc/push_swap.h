@@ -1,9 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ysakarya <ysakarya@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/16 02:30:29 by ysakarya          #+#    #+#             */
+/*   Updated: 2025/04/16 04:04:11 by ysakarya         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
 # include "../libft/libft.h"
 # include <stdlib.h>
 # include <unistd.h>
+
+# define MAX_INT 2147483647
+# define MIN_INT -2147483648
 
 typedef struct s_stack
 {
@@ -15,24 +30,28 @@ typedef struct s_stack
 	int		a_sz;
 	int		b_sz;
 	int		size;
-	int 	bit;
+	int		bit;
 }	t_stack;
 
-void	arg_ctl(int argc, char **argv);
-void	arg_check(int argc, char **argv);
+int		stack_init(int argc, char **argv);
+void	char_check(int argc, char **argv);
 void	space_check(int argc, char **argv);
-t_stack	stack_init(int argc, char **argv);
-void	split_check(t_stack array);
-void	array_init(t_stack array, int size);
-void	array_check(t_stack array);
-void	is_sorted(t_stack array);
-void	is_unique(t_stack array);
-void	free_and_exit(t_stack array, int i, int f);
-void	radix_sort(t_stack array);
-void	index_elements(t_stack array);
-void	pa(t_stack array);
-void	pb(t_stack array);
-void	ra(t_stack array);
-void	rb(t_stack array);
+int		check_args(int argc, char **argv);
+int		is_valid_number(char *str);
+int		check_limits(char *str);
+void	get_array(int argc, char **argv, t_stack *array);
+void	is_unique(t_stack *array);
+void	is_sorted(t_stack *array);
+void	index_elements(t_stack *array);
+void	free_split(char **temp);
+void	error_exit(void);
+void	radix_sort(t_stack *array);
+void	push_back_sorted(t_stack *array, int bit);
+void	five_sort(t_stack *array);
+void	little_sort(t_stack *array);
+void	pa(t_stack *array);
+void	pb(t_stack *array);
+void	ra(t_stack *array);
+void	rb(t_stack *array);
 
-# endif
+#endif

@@ -1,35 +1,49 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   moves.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ysakarya <ysakarya@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/16 01:15:36 by ysakarya          #+#    #+#             */
+/*   Updated: 2025/04/16 01:20:37 by ysakarya         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/push_swap.h"
 
-void ra(t_stack array)
+void	ra(t_stack *array)
 {
-	array.arr_a[(array.a_st + array.a_sz) % array.size] = array.arr_a[array.a_st];
-	array.a_st = (array.a_st + 1) % array.size;
+	array->arr_a[(array->a_st + array->a_sz) % array->size] \
+		= array->arr_a[array->a_st];
+	array->a_st = (array->a_st + 1) % array->size;
 	write(1, "ra\n", 3);
 }
 
-void rb(t_stack array)
+void	rb(t_stack *array)
 {
-	array.arr_b[(array.b_st + array.b_sz) % array.size] = array.arr_b[array.b_st];
-	array.b_st = (array.b_st + 1) % array.size;
+	array->arr_b[(array->b_st + array->b_sz) % array->size] \
+		= array->arr_b[array->b_st];
+	array->b_st = (array->b_st + 1) % array->size;
 	write(1, "rb\n", 3);
 }
 
-void pa(t_stack array)
+void	pa(t_stack *array)
 {
-	array.a_st = (array.a_st - 1 + array.size) % array.size;
-	array.arr_a[array.a_st] = array.arr_b[array.b_st];
-	array.b_st = (array.b_st + 1) % array.size;
-	array.b_sz--;
-	array.a_sz++;
+	array->a_st = (array->a_st - 1 + array->size) % array->size;
+	array->arr_a[array->a_st] = array->arr_b[array->b_st];
+	array->b_st = (array->b_st + 1) % array->size;
+	array->b_sz--;
+	array->a_sz++;
 	write(1, "pa\n", 3);
 }
 
-void pb(t_stack array)
+void	pb(t_stack *array)
 {
-	array.b_st = (array.b_st - 1 + array.size) % array.size;
-	array.arr_b[array.b_st] = array.arr_a[array.a_st];
-	array.a_st = (array.a_st + 1) % array.size;
-	array.a_sz--;
-	array.b_sz++;
+	array->b_st = (array->b_st - 1 + array->size) % array->size;
+	array->arr_b[array->b_st] = array->arr_a[array->a_st];
+	array->a_st = (array->a_st + 1) % array->size;
+	array->a_sz--;
+	array->b_sz++;
 	write(1, "pb\n", 3);
 }
