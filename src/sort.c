@@ -6,7 +6,7 @@
 /*   By: ysakarya <ysakarya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 01:20:49 by ysakarya          #+#    #+#             */
-/*   Updated: 2025/04/16 05:01:48 by ysakarya         ###   ########.fr       */
+/*   Updated: 2025/04/16 05:08:46 by ysakarya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	push_back_sorted(t_stack *array, int bit)
 	m = array->b_sz;
 	while (j < m)
 	{
-		if (((array->arr_b[array->b_st] >> bit) & 1))
+		if (((array->arr_b[array->b_st] >> bit) & 1) || bit == array->bit)
 			pa(array);
 		else
 			rb(array);
