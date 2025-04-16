@@ -6,7 +6,7 @@
 /*   By: ysakarya <ysakarya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 01:53:47 by ysakarya          #+#    #+#             */
-/*   Updated: 2025/04/16 02:29:58 by ysakarya         ###   ########.fr       */
+/*   Updated: 2025/04/17 01:51:57 by ysakarya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ int	check_limits(char *str)
 	}
 	if (c > 10)
 		return (0);
-	num = ft_atoi(str);
+	num = ft_atol(str);
 	if (num < MIN_INT || num > MAX_INT)
 		return (0);
 	return (1);

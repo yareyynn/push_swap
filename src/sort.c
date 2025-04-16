@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yarensakarya <yarensakarya@student.42.f    +#+  +:+       +#+        */
+/*   By: ysakarya <ysakarya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 01:20:49 by ysakarya          #+#    #+#             */
-/*   Updated: 2025/04/17 00:10:20 by yarensakary      ###   ########.fr       */
+/*   Updated: 2025/04/17 01:42:21 by ysakarya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,19 +90,19 @@ void	little_sort(t_stack *array, int i)
 	else
 	{
 		if (array->arr_a[array->a_st] == i \
-			&& array->arr_a[(array->a_st + 1) % array->a_sz] == i + 2)
+			&& array->arr_a[(array->a_st + 1) % array->size] == i + 2)
 			write(1, "rra\nsa\n", 7);
 		else if (array->arr_a[array->a_st] == i + 1 \
-			&& array->arr_a[(array->a_st + 1) % array->a_sz] == i)
+			&& array->arr_a[(array->a_st + 1) % array->size] == i)
 			write(1, "sa\n", 3);
 		else if (array->arr_a[array->a_st] == i + 1 \
-			&& array->arr_a[(array->a_st + 1) % array->a_sz] == i + 2)
+			&& array->arr_a[(array->a_st + 1) % array->size] == i + 2)
 			write(1, "rra\n", 4);
 		else if (array->arr_a[array->a_st] == i + 2 \
-			&& array->arr_a[(array->a_st + 1) % array->a_sz] == i + 1)
+			&& array->arr_a[(array->a_st + 1) % array->size] == i + 1)
 			write(1, "ra\nsa\n", 7);
 		else if (array->arr_a[array->a_st] == i + 2 \
-			&& array->arr_a[(array->a_st + 1) % array->a_sz] == i)
+			&& array->arr_a[(array->a_st + 1) % array->size] == i)
 			write(1, "ra\n", 3);
 	}
 }
@@ -119,10 +119,11 @@ void	five_sort(t_stack *array)
 		else
 			ra(array);
 		i++;
+		if(array->a_sz == 3)
+			break ;
 	}
 	little_sort(array, 2);
-	if (array->arr_b[array->b_st] \
-		< array->arr_b[(array->b_st + 1) % array->b_sz])
+	if (array->arr_b[array->b_st] == 0)
 		write(1, "sb\n", 3);
 	write(1, "pa\npa\n", 6);
 }

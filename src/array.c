@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   array.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yarensakarya <yarensakarya@student.42.f    +#+  +:+       +#+        */
+/*   By: ysakarya <ysakarya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 01:11:00 by ysakarya          #+#    #+#             */
-/*   Updated: 2025/04/16 23:18:23 by yarensakary      ###   ########.fr       */
+/*   Updated: 2025/04/17 01:45:06 by ysakarya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,7 @@ void	is_sorted(t_stack *array)
 		i++;
 	}
 	free(array->arr_b);
-	write(2, "Error\n", 6);
-	exit(1);
+	exit(0);
 }
 
 void	free_split(char **temp)
