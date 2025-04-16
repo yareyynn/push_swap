@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   array.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ysakarya <ysakarya@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yarensakarya <yarensakarya@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 01:11:00 by ysakarya          #+#    #+#             */
-/*   Updated: 2025/04/16 03:26:55 by ysakarya         ###   ########.fr       */
+/*   Updated: 2025/04/16 23:18:23 by yarensakary      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ void	get_array(int argc, char **argv, t_stack *array)
 	char	**numbers;
 
 	array->arr_b = malloc(sizeof(long) * (array->size));
-	if (!array->arr_b)
-		exit(1);
 	i = 1;
 	j = 0;
 	k = 0;
@@ -36,8 +34,6 @@ void	get_array(int argc, char **argv, t_stack *array)
 	is_unique(array);
 	is_sorted(array);
 	array->arr_a = malloc(sizeof(long) * array->size);
-	if (!array->arr_a)
-		exit(1);
 	index_elements(array);
 }
 

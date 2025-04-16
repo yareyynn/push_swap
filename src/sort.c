@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ysakarya <ysakarya@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yarensakarya <yarensakarya@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 01:20:49 by ysakarya          #+#    #+#             */
-/*   Updated: 2025/04/16 05:08:46 by ysakarya         ###   ########.fr       */
+/*   Updated: 2025/04/17 00:10:20 by yarensakary      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ void	radix_sort(t_stack *array)
 	int	j;
 	int	m;
 
+	if (array->size == 1)
+		return ;
 	i = 0;
 	while (i < array->bit)
 	{
@@ -59,8 +61,6 @@ void	radix_sort(t_stack *array)
 		i++;
 		push_back_sorted(array, i);
 	}
-	free(array->arr_b);
-	free(array->arr_a);
 }
 
 void	push_back_sorted(t_stack *array, int bit)
@@ -80,44 +80,49 @@ void	push_back_sorted(t_stack *array, int bit)
 	}
 }
 
-void	little_sort(t_stack *array)
+void	little_sort(t_stack *array, int i)
 {
 	if (array->size == 2)
 	{
 		if (array->arr_a[0] > array->arr_a[1])
 			ra(array);
 	}
-	else if (array->size == 3)
+	else
 	{
-		if (array->arr_a[0] == 0 && array->arr_a[1] == 2)
-			write(1, "ra\nsa\n", 8);
-		else if (array->arr_a[0] == 1 && array->arr_a[1] == 0)
+		if (array->arr_a[array->a_st] == i \
+			&& array->arr_a[(array->a_st + 1) % array->a_sz] == i + 2)
+			write(1, "rra\nsa\n", 7);
+		else if (array->arr_a[array->a_st] == i + 1 \
+			&& array->arr_a[(array->a_st + 1) % array->a_sz] == i)
 			write(1, "sa\n", 3);
-		else if (array->arr_a[0] == 1 && array->arr_a[1] == 2)
+		else if (array->arr_a[array->a_st] == i + 1 \
+			&& array->arr_a[(array->a_st + 1) % array->a_sz] == i + 2)
 			write(1, "rra\n", 4);
-		else if (array->arr_a[0] == 2 && array->arr_a[1] == 1)
-			write(1, "rra\nsa\n", 8);
-		else if (array->arr_a[0] == 2 && array->arr_a[1] == 0)
+		else if (array->arr_a[array->a_st] == i + 2 \
+			&& array->arr_a[(array->a_st + 1) % array->a_sz] == i + 1)
+			write(1, "ra\nsa\n", 7);
+		else if (array->arr_a[array->a_st] == i + 2 \
+			&& array->arr_a[(array->a_st + 1) % array->a_sz] == i)
 			write(1, "ra\n", 3);
 	}
 }
 
 void	five_sort(t_stack *array)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < array->size)
 	{
-		if (array->arr_a[i] == 0 || array->arr_a[i] == 1)
+		if (array->arr_a[array->a_st] == 0 || array->arr_a[array->a_st] == 1)
 			pb(array);
-			
 		else
 			ra(array);
 		i++;
 	}
-	little_sort(array);
-	if(array->arr_b[0] > array->arr_b[1])
+	little_sort(array, 2);
+	if (array->arr_b[array->b_st] \
+		< array->arr_b[(array->b_st + 1) % array->b_sz])
 		write(1, "sb\n", 3);
 	write(1, "pa\npa\n", 6);
 }

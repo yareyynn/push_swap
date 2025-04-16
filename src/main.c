@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ysakarya <ysakarya@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yarensakarya <yarensakarya@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 01:14:26 by ysakarya          #+#    #+#             */
-/*   Updated: 2025/04/16 04:07:14 by ysakarya         ###   ########.fr       */
+/*   Updated: 2025/04/17 00:06:36 by yarensakary      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,14 @@ int	main(int argc, char **argv)
 	array.b_st = 0;
 	array.a_sz = array.size;
 	array.b_sz = 0;
-	if(array.size != 5 && array.size != 3 && array.size != 2)
+	if (array.size != 5 && array.size != 3 && array.size != 2)
 		radix_sort(&array);
 	else if (array.size == 5)
 		five_sort(&array);
 	else if (array.size == 3 || array.size == 2)
-		little_sort(&array);
+		little_sort(&array, 0);
+	free(array.arr_a);
+	free(array.arr_b);
 }
 
 int	stack_init(int argc, char **argv)

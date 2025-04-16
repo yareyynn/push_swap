@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ysakarya <ysakarya@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yarensakarya <yarensakarya@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 02:30:29 by ysakarya          #+#    #+#             */
-/*   Updated: 2025/04/16 04:04:11 by ysakarya         ###   ########.fr       */
+/*   Updated: 2025/04/16 20:33:38 by yarensakary      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	error_exit(void);
 void	radix_sort(t_stack *array);
 void	push_back_sorted(t_stack *array, int bit);
 void	five_sort(t_stack *array);
-void	little_sort(t_stack *array);
+void	little_sort(t_stack *array, int i);
 void	pa(t_stack *array);
 void	pb(t_stack *array);
 void	ra(t_stack *array);
