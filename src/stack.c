@@ -6,7 +6,7 @@
 /*   By: ysakarya <ysakarya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 01:53:47 by ysakarya          #+#    #+#             */
-/*   Updated: 2025/04/17 01:51:57 by ysakarya         ###   ########.fr       */
+/*   Updated: 2025/04/17 03:17:04 by ysakarya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	char_check(int argc, char **argv)
 	int	j;
 
 	if (argc < 2)
-		error_exit();
+		exit(0);
 	i = 1;
 	while (i < argc)
 	{
@@ -115,13 +115,16 @@ int	check_limits(char *str)
 	i = 0;
 	c = 0;
 	if (str[i] == '-' || str[i] == '+')
+	{
 		i++;
+		c++;
+	}
 	while (str[i] == '0')
 	{
 		i++;
 		c++;
 	}
-	if (c > 10)
+	if (ft_strlen(str) - c > 10)
 		return (0);
 	num = ft_atol(str);
 	if (num < MIN_INT || num > MAX_INT)

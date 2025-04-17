@@ -4,7 +4,7 @@ NAME_LIBFT = libft/libft.a
 INCLUDES_H = -Iinc -Ilibft
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 
 SRC = src/main.c src/moves.c src/sort.c \
 	src/stack.c src/array.c
