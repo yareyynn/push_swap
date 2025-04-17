@@ -6,7 +6,7 @@
 /*   By: ysakarya <ysakarya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 01:20:49 by ysakarya          #+#    #+#             */
-/*   Updated: 2025/04/17 01:42:21 by ysakarya         ###   ########.fr       */
+/*   Updated: 2025/04/17 02:34:21 by ysakarya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ void	little_sort(t_stack *array, int i)
 			write(1, "rra\n", 4);
 		else if (array->arr_a[array->a_st] == i + 2 \
 			&& array->arr_a[(array->a_st + 1) % array->size] == i + 1)
-			write(1, "ra\nsa\n", 7);
+			write(1, "ra\nsa\n", 6);
 		else if (array->arr_a[array->a_st] == i + 2 \
 			&& array->arr_a[(array->a_st + 1) % array->size] == i)
 			write(1, "ra\n", 3);
@@ -119,7 +119,7 @@ void	five_sort(t_stack *array)
 		else
 			ra(array);
 		i++;
-		if(array->a_sz == 3)
+		if (array->a_sz == 3)
 			break ;
 	}
 	little_sort(array, 2);
